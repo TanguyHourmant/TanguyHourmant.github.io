@@ -58,9 +58,14 @@
 }
 
 .timeline-item.right {
-  left: 50%; /* reste à droite, pas besoin de décaler plus */
+  left: 55%; /* décale toute la bulle plus à droite */
   text-align: left;
 }
+
+.timeline-item.right .timeline-content {
+  margin-left: 30px; /* espace intérieur */
+}
+
 
 .timeline-content {
   background: white;
@@ -72,13 +77,7 @@
   max-width: none;
   min-height: 500px;
 }
-    .timeline-item.left .timeline-content {
-  margin-right: 30px; /* écarte la bulle de la ligne */
-}
 
-.timeline-item.right .timeline-content {
-  margin-left: 30px; /* écarte la bulle de la ligne */
-}
     .timeline-item::after {
       content: "";
       position: absolute;
