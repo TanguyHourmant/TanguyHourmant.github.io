@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tanguy Hourmant - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -18,37 +18,74 @@
       padding: 2rem;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-    }
     main {
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
       padding: 2rem;
-    }
-    section {
-      margin-bottom: 3rem;
     }
     h2 {
       color: #1e293b;
       border-bottom: 2px solid #1e293b;
       padding-bottom: 0.5rem;
+      text-align: center;
     }
-    .project {
-      background-color: white;
+
+    /* Frise chronologique */
+    .timeline {
+      position: relative;
+      margin: 3rem 0;
+      padding: 2rem 0;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #1e293b;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1rem 2rem;
+      box-sizing: border-box;
+    }
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+    }
+    .timeline-item.right {
+      left: 50%;
+      text-align: left;
+    }
+    .timeline-content {
+      background: white;
       padding: 1rem;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin-bottom: 1.5rem;
+      display: inline-block;
+      max-width: 90%;
     }
-    .project h3 {
-      margin: 0;
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      top: 1.2rem;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #1e293b;
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px #1e293b;
     }
+    .timeline-item.left::after {
+      right: -8px;
+    }
+    .timeline-item.right::after {
+      left: -8px;
+    }
+
     footer {
       text-align: center;
       padding: 2rem;
@@ -58,6 +95,21 @@
     a {
       color: #0f172a;
       text-decoration: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .timeline-item, .timeline-item.left, .timeline-item.right {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        margin-bottom: 2rem;
+      }
+      .timeline::before {
+        left: 10px;
+      }
+      .timeline-item::after {
+        left: 0;
+      }
     }
   </style>
 </head>
@@ -70,26 +122,28 @@
   <main>
     <section>
       <h2>À propos</h2>
-      <p>I am currently pursuing a dual Master's degree in Aeronautics and Astronautics at Purdue University and in Mechanical Engineering at Arts et Métiers, with a strong interest in the space industry and artificial intelligence.</p>
+      <p>Je poursuis actuellement un double diplôme de Master à Purdue University et Arts et Métiers ParisTech, avec un intérêt marqué pour l'industrie spatiale et l'intelligence artificielle.</p>
     </section>
 
     <section>
-      <h2>Projets</h2>
-
-      <div class="project">
-        <h3>Nom du Projet 1</h3>
-        <p><strong>Technologies :</strong> Python, Raspberry Pi</p>
-        <p>Ce projet consistait à construire un système embarqué pour ...</p>
+      <h2>Frise des projets</h2>
+      <div class="timeline">
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h3>Nom du Projet 1</h3>
+            <p><strong>Technologies :</strong> Python, Raspberry Pi</p>
+            <p>Ce projet consistait à construire un système embarqué pour ...</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h3>Nom du Projet 2</h3>
+            <p><strong>Technologies :</strong> MATLAB, Simulink</p>
+            <p>Simulation d'un contrôleur PID pour une application industrielle...</p>
+          </div>
+        </div>
+        <!-- Tu peux ajouter d'autres projets ci-dessous -->
       </div>
-
-      <div class="project">
-        <h3>Nom du Projet 2</h3>
-        <p><strong>Technologies :</strong> MATLAB, Simulink</p>
-        <p>Simulation d'un contrôleur PID pour une application industrielle...</p>
-      </div>
-
-      <!-- Ajoute d'autres projets ici -->
-
     </section>
   </main>
 
