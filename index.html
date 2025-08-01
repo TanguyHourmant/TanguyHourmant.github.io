@@ -38,7 +38,6 @@
   margin: 3rem 0;
   padding: 2rem 0;
 }
-
 .timeline::before {
   content: "";
   position: absolute;
@@ -48,77 +47,73 @@
   width: 4px;
   background: #1e293b;
   transform: translateX(-50%);
+  z-index: 0;
 }
+/* Les items prennent la moitié de la timeline */
 .timeline-item {
-  position: relative;
-  width: 60%;
+  width: 50%;
   box-sizing: border-box;
-  margin-bottom: 3rem; /* espace entre les items */
+  position: relative;
+  margin-bottom: 3rem;
+  z-index: 1;
 }
-
+/* Encadré à gauche */
 .timeline-item.left {
-  margin-left: 0;
+  align-self: flex-start;
   text-align: right;
   padding-right: 60px;
-  align-self: flex-start;
 }
-
+/* Encadré à droite */
 .timeline-item.right {
-  margin-left: 40%;
+  align-self: flex-end;
   text-align: left;
   padding-left: 60px;
-  align-self: flex-end;
 }
 .timeline-content {
   background: white;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: inline-block;
-  width: 100%;
-  max-width: none;
-  min-height: 500px;
+  min-height: 200px;
+}
+.timeline-item.left::after,
+.timeline-item.right::after {
+  content: "";
+  position: absolute;
+  top: 1.2rem;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #1e293b;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px #1e293b;
+  z-index: 2;
 }
 .timeline-item.left::after {
   right: -8px;
-  left: auto;
 }
 .timeline-item.right::after {
   left: -8px;
-  right: auto;
 }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #e2e8f0;
-      font-size: 0.9rem;
-    }
-
-    a {
-      color: #0f172a;
-      text-decoration: none;
-    }
-
-    @media screen and (max-width: 768px) {
-      .timeline-item,
-      .timeline-item.left,
-      .timeline-item.right {
-        width: 100%;
-        left: 0;
-        text-align: left;
-        padding: 0;
-        margin-bottom: 2rem;
-      }
-
-      .timeline::before {
-        left: 10px;
-      }
-
-      .timeline-item::after {
-        left: 0;
-      }
-    }
+@media screen and (max-width: 768px) {
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding: 0;
+    margin-bottom: 2rem;
+    align-self: stretch;
+  }
+  .timeline::before {
+    left: 10px;
+  }
+  .timeline-item::after {
+    left: 0;
+    right: auto;
+  }
+}
   </style>
 </head>
 <body>
