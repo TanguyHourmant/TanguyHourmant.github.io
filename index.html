@@ -32,69 +32,54 @@
 
     /* Frise chronologique */
     .timeline {
-      position: relative;
-      margin: 3rem 0;
-      padding: 2rem 0;
-    }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: #1e293b;
-      transform: translateX(-50%);
-    }
-
-    .timeline-item {
-      position: relative;
-      width: 60%;
-      box-sizing: border-box;
-    }
-
-    .timeline-item.left {
-      left: -10%;
-      text-align: right;
-      padding-right: 60px; /* Espace avec la ligne */
-    }
-
-    .timeline-item.right {
-      left: 50%;
-      text-align: left;
-      padding-left: 60px; /* Espace avec la ligne */
-    }
-
-    .timeline-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: inline-block;
-      width: 100%;
-      max-width: none;
-      min-height: 500px;
-    }
-
-    .timeline-item::after {
-      content: "";
-      position: absolute;
-      top: 1.2rem;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: #1e293b;
-      border: 3px solid white;
-      box-shadow: 0 0 0 2px #1e293b;
-    }
-
-    .timeline-item.left::after {
-      right: -8px;
-    }
-
-    .timeline-item.right::after {
-      left: -8px;
-    }
+  position: relative;
+  margin: 3rem 0;
+  padding: 2rem 0;
+  min-height: 600px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #1e293b;
+  transform: translateX(-50%);
+}
+.timeline-item {
+  position: absolute;
+  width: 45%;
+  box-sizing: border-box;
+}
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+  padding-right: 60px;
+}
+.timeline-item.right {
+  left: 55%;
+  text-align: left;
+  padding-left: 60px;
+}
+.timeline-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: inline-block;
+  width: 100%;
+  max-width: none;
+  min-height: 500px;
+}
+.timeline-item.left::after {
+  right: -8px;
+  left: auto;
+}
+.timeline-item.right::after {
+  left: -8px;
+  right: auto;
+}
 
     footer {
       text-align: center;
